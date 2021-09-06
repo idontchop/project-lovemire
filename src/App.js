@@ -4,26 +4,57 @@ import {useState} from 'react';
 import { Button, Label, TextField, Card, Typography, CardContent, CardActions, InputAdornment, Link} from '@material-ui/core'
 import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import {useSpring, animated} from 'react-spring'
 
 import { makeStyles } from '@material-ui/core/styles';
 import './App.css'
 
-const StyledH1 = styled.h1`
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  color: #aeb7bf;
-`;
+import Project from './components/Project'
+
+
 
 const useStyles = makeStyles({
   card: {
-    maxWidth: 345,
+    width: 345,
     height: `100%`,
     margin: `10px auto`
   },
   clear: {
     display: 'block'
+  },
+  accordianHeading: {
+    flexBasis: '33.33%',
+    flexShrink: 0
+  },
+  accordianSubHeading: {
+    fontSize: "0.8em",
+    justifyContent: "center"
   }
 });
+
+const beginHeader = {
+  backgroundColor: "#282c34",
+  minHeight: "25vh",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
+  justifyContent: "center",
+  fontSize: "calc(10px + 2vmin)",
+  color: "white"
+}
+
+const afterHeader = {
+  minHeight: "10vh",
+  justifyContent: "flex-start",
+  fontSize: "calc(5px + 2vmin)",
+  flexDirection: "row"
+}
+
+const h1Style = {
+  fontFamily: `'Roboto', sans-serif`,
+  margin: `5px 5px 5px 20px`,
+  color: `#aeb7bf`
+}
 
 const axios = require('axios').default;
 
@@ -32,6 +63,15 @@ const AUTHURL = "https://lovemire.com/auth";
 function App() {
 
   const theme = useStyles();
+
+  const [springStyles, springApi] = useSpring( () => ({opacity: 0}))
+  const [headerStyles, headerApi] = useSpring ( () => (beginHeader))
+  const [imgStyles, imgApi] = useSpring( () => ({height: "auto"}))
+  const [h1Styles, h1Api] = useSpring( () => (h1Style))
+
+
+
+
   const [accessCode, setAccessCode] = useState("")
   const [token, setToken] = useState("")
   const [user, setUser] = useState({})
@@ -43,6 +83,10 @@ function App() {
       axios.get(AUTHURL + `/testuser/${accessCode}`, {responseType: 'json'})
         .then ( response => {
           console.log(response)
+          springApi.start({opacity: 1})
+          headerApi.start(afterHeader)
+          imgApi.start({maxHeight: "5vh"})
+          h1Api.start({fontSize: "20px", color: "#dcdee0"})
           if (!!response['data']['user']) setUser(response['data']['user'])
           if (!!response['data'] && response['data']['token'])
             setToken(response['data']['token'])
@@ -60,13 +104,13 @@ function App() {
 
   return (
     <div>
-      <header className="App-header">
-        <StyledH1>Project: </StyledH1>
-        <img src={logo} alt="LoveMire" />
-
-      </header>
+      <animated.header style={headerStyles}>
+        <animated.h1 style={h1Styles}>Project: </animated.h1>
+        <animated.img style={imgStyles} src={logo} alt="LoveMire" />
+      </animated.header>
+      <div style={{padding: "20px"}}>
       <Grid container
-            spacing={2}
+            spacing={3}
             direction="row"
             justifyContent="center"
             alignItems="flex-start">
@@ -109,6 +153,7 @@ function App() {
       }
       {!!token && token.length > 20 && 
       <Grid item>
+      <animated.div style={springStyles}>
         <Card className={theme.card}>
         <CardContent>
           <Typography gutterBottom variant="h5">Welcome {user.title}!</Typography>
@@ -117,11 +162,18 @@ function App() {
             comopnent="Link"
             variant="contained"
             color="primary"
-             to={`https://beta.lovemire.com/?t=${token}`}>Go!</Button>
+             href={`https://beta.lovemire.com/?t=${token}`}>Go!</Button>
         </CardContent>
         </Card>
+        </animated.div>
       </Grid>}
+      {!!token && token.length > 20 && <Grid item>
+        <animated.div style={springStyles}>
+          <Project theme={theme} />
+        </animated.div>
+        </Grid>}
       </Grid>
+      </div>
     </div>
   );
 }
