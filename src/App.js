@@ -1,7 +1,7 @@
 import logo from './images/lovemire-logo-wide.png';
 import styled from 'styled-components'
 import {useState} from 'react';
-import { Button, Label, TextField, Card, Typography, CardContent, CardActions, InputAdornment, Link} from '@material-ui/core'
+import { LinearProgress, Button, Label, TextField, Card, Typography, CardContent, CardActions, InputAdornment, Link} from '@material-ui/core'
 import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import {useSpring, animated} from 'react-spring'
@@ -27,6 +27,7 @@ const useStyles = makeStyles({
     flexShrink: 0
   },
   accordianSubHeading: {
+    flexBasis: '33.33%',
     fontSize: "0.8em",
     justifyContent: "center"
   }

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import styled from 'styled-components'
-import { Button, Label, TextField, Card, Typography, CardContent, CardActions, InputAdornment, Link} from '@material-ui/core'
+import { LinearProgress, Button, Label, TextField, Card, Typography, CardContent, CardActions, InputAdornment, Link} from '@material-ui/core'
 import Accordian from '@material-ui/core/Accordion'
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
@@ -17,10 +17,12 @@ import { makeStyles } from '@material-ui/core/styles';
  */
 const projectManagement = [
     { id: 1, name: "phase-one", title: "Phase One", subTitle: "Back end development, UI Structure",
-    active: true, progress: "10%",
-    description: "Early development phase consists of Backend Design and Development along with a simple UI structure to allow test users to navigate data."},
+    active: true, progress: 10,
+    description: "Early development phase consists of Backend Design and Development along with a simple UI structure to allow test users to navigate data.",
+    timeline: <ul><li>Testing should focus on adding data and general structure (not aesthetics).</li></ul>},
 
     { id: 2, name: "phase-two", title: "Phase Two", subTitle: "Front end UI Remodel and Testing",
+    progress: 0,
     description: "Using data from phase two, focus on developing a user-friendly, fast, and appealing Progressive Web App."}
 
 ]
@@ -49,9 +51,10 @@ const Project = (props) => {
             <AccordionSummary  style={e.active ? activeStyle : upcomingStyle } expandIcon={<ExpandMoreIcon />}>
                 <Typography className={props.theme.accordianHeading}>{e.title}</Typography>
                 <Typography className={props.theme.accordianSubHeading}>{e.subTitle}</Typography>
+                <LinearProgress color="primary" variant="determinate" className={props.theme.accordianSubHeading} value={e.progress}/>
             </AccordionSummary>
             <AccordionDetails>
-                <Typography>{e.description}</Typography>
+                <Typography>{e.description}{e.timeline}</Typography>
             </AccordionDetails>
         </Accordian>)}
 
