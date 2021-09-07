@@ -18,13 +18,21 @@ import { makeStyles } from '@material-ui/core/styles';
 const projectManagement = [
     { id: 1, name: "phase-one", title: "Phase One", subTitle: "Back end development, UI Structure",
     active: true, progress: 10,
-    description: "Early development phase consists of Backend Design and Development along with a simple UI structure to allow test users to navigate data.",
+    description: ["Early development phase consists of Backend Design and Development along with a simple UI structure to allow test users to navigate data.",
+                "Project Lovemire is being developed with consideration for sudden high traffic loads with Microservice Architecture. During Phase One, these microservices will be " +
+                "operated on a development server running docker, so will not be capable of handling stress tests in this phase."
+                ],
     timeline: <ul><li>Testing should focus on adding data and general structure (not aesthetics).</li></ul>},
 
     { id: 2, name: "phase-two", title: "Phase Two", subTitle: "Front end UI Remodel and Testing",
     progress: 0,
-    description: "Using data from phase two, focus on developing a user-friendly, fast, and appealing Progressive Web App."}
-
+    description: ["Using data from phase two, focus on developing a user-friendly, fast, and appealing Progressive Web App."],
+    timeline: <ul><li>Testing to be focused on User Interface easy of use and appeal.</li></ul>},
+    { id: 2, name: "phase-three", title: "Phase Three", subTitle: "Public Beta Prep",
+    progress: 0,
+    description: ["Backend Architecture will be moved to a cloud service provider such as AWS."],
+    timeline: <ul><li>Public Authentication protocols added, security added.</li>
+                <li>Stress and Security Tests performed.</li></ul>}                  
 ]
 
 const accordianStyle = {
@@ -54,7 +62,10 @@ const Project = (props) => {
                 <LinearProgress color="primary" variant="determinate" className={props.theme.accordianSubHeading} value={e.progress}/>
             </AccordionSummary>
             <AccordionDetails>
-                <Typography>{e.description}{e.timeline}</Typography>
+                <div>
+                {e.description.map ( p => <Typography style={{marginBottom:"15px"}} inline>{p}</Typography>)}
+                </div>
+                <Typography>{e.timeline}</Typography>
             </AccordionDetails>
         </Accordian>)}
 
