@@ -92,7 +92,7 @@ const ContentTester = (props) => {
             <Paper square elevation={0}>
                 <Typography variant="h5">{tutorialSteps[activeStep].label}</Typography>
             </Paper>
-            <img style={{width: "auto", height: "400px", margin: "auto", display: "block"}}
+            <img style={{maxheight: "400px", width: "100%", objectFit: "fill", margin: "auto", display: "block"}}
                 src={tutorialSteps[activeStep].imgPath}
             />
         </CardContent>
