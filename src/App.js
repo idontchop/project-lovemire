@@ -5,17 +5,28 @@ import { LinearProgress, Button, Label, TextField, Card, Typography, CardContent
 import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import {useSpring, animated} from 'react-spring'
+import ContentTester from './accessLevelCustomCards/ContentTester'
 
 import { makeStyles } from '@material-ui/core/styles';
 import './App.css'
 
 import Project from './components/Project'
 
+const accessLevels = {
+  0: "ContentTester"
+}
+
 
 
 const useStyles = makeStyles({
   card: {
     width: 345,
+    height: `100%`,
+    margin: `10px auto`
+  },
+  wideCard: {
+    width: "auto",
+    maxWidth: 720,
     height: `100%`,
     margin: `10px auto`
   },
@@ -77,6 +88,8 @@ function App() {
   const [token, setToken] = useState("")
   const [user, setUser] = useState({})
 
+  const [TesterContent, setTesterContent] = useState(null)
+
   const getToken = (e) => {
     if (e) e.preventDefault()
 
@@ -88,9 +101,15 @@ function App() {
           headerApi.start(afterHeader)
           imgApi.start({maxHeight: "5vh"})
           h1Api.start({fontSize: "20px", color: "#dcdee0"})
-          if (!!response['data']['user']) setUser(response['data']['user'])
-          if (!!response['data'] && response['data']['token'])
+          if (!!response['data']['user']) {
+            setUser(response['data']['user'])
+            let n = require('./accessLevelCustomCards/' + accessLevels[response['data']['user']['accessLevel']])
+            //let n = require('./accessLevelCustomCards/ContentTester')
+            setTesterContent(n)
+          }
+          if (!!response['data'] && response['data']['token']) {
             setToken(response['data']['token'])
+          }
           else setToken("error")
 
         })
@@ -103,6 +122,7 @@ function App() {
 
   }
 
+  console.log(user)
   return (
     <div>
       <animated.header style={headerStyles}>
@@ -173,11 +193,13 @@ function App() {
         </Card>
         </animated.div>
       </Grid>}
+      {!!user && user.accessLevel === 0 && <ContentTester springStyles={springStyles} theme={theme} user={user} />}
       {!!token && token.length > 20 && <Grid item>
         <animated.div style={springStyles}>
           <Project theme={theme} />
         </animated.div>
         </Grid>}
+      
       </Grid>
       </div>
     </div>
