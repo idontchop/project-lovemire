@@ -158,12 +158,17 @@ function App() {
         <Card className={theme.card}>
         <CardContent>
           <Typography gutterBottom variant="h5">Welcome {user.title}!</Typography>
-          <Typography gutterBottom>Go to Beta!</Typography>
             <Button
             comopnent="Link"
             variant="contained"
             color="primary"
-             href={`https://beta.lovemire.com/?t=${token}`}>Go!</Button>
+             href={`https://beta.lovemire.com/?t=${token}`}>Beta (for testers)</Button>
+          <Typography gutterBottom></Typography>
+          { user.accessLevel ===0 &&  <Button
+            comopnent="Link"
+            variant="contained"
+            color="primary"
+             href={`https://localhost:3000/?t=${token}`}>Local (for developers)</Button>             }
         </CardContent>
         </Card>
         </animated.div>
