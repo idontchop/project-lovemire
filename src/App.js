@@ -6,6 +6,7 @@ import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import {useSpring, animated} from 'react-spring'
 import ContentTester from './accessLevelCustomCards/ContentTester'
+import Developer from './accessLevelCustomCards/Developer'
 
 import { makeStyles } from '@material-ui/core/styles';
 import './App.css'
@@ -13,7 +14,8 @@ import './App.css'
 import Project from './components/Project'
 
 const accessLevels = {
-  0: "ContentTester"
+  0: "Developer",
+  1: "ContentTester"
 }
 
 
@@ -193,7 +195,8 @@ function App() {
         </Card>
         </animated.div>
       </Grid>}
-      {!!user && user.accessLevel === 0 && <ContentTester springStyles={springStyles} theme={theme} user={user} />}
+      {!!user && user.accessLevel === 0 && <Developer springStyles={springStyles} theme={theme} user={user} />}
+      {!!user && user.accessLevel == 1 && <ContentTester springStyles={springStyles} theme={theme} user={user} />}
       {!!token && token.length > 20 && <Grid item>
         <animated.div style={springStyles}>
           <Project theme={theme} />
