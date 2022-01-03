@@ -5,8 +5,10 @@ import { LinearProgress, Button, Label, TextField, Card, Typography, CardContent
 import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import {useSpring, animated} from 'react-spring'
+import MockUpsContainer from './containers/MockUpsContainer'
 import ContentTester from './accessLevelCustomCards/ContentTester'
 import Developer from './accessLevelCustomCards/Developer'
+import AllTester from './cards/AllTester'
 
 import { makeStyles } from '@material-ui/core/styles';
 import './App.css'
@@ -33,7 +35,8 @@ const useStyles = makeStyles({
     margin: `10px auto`
   },
   clear: {
-    display: 'block'
+    display: 'block',
+    clear: 'both'
   },
   accordianHeading: {
     flexBasis: '33.33%',
@@ -195,8 +198,10 @@ function App() {
         </Card>
         </animated.div>
       </Grid>}
+      <AllTester springStyles={springStyles} theme={theme} user={user} />
       {!!user && user.accessLevel === 0 && <Developer springStyles={springStyles} theme={theme} user={user} />}
       {!!user && user.accessLevel == 1 && <ContentTester springStyles={springStyles} theme={theme} user={user} />}
+      {!!user && user.accessLevel >= 0 && <MockUpsContainer theme={theme} user={user} />}
       {!!token && token.length > 20 && <Grid item>
         <animated.div style={springStyles}>
           <Project theme={theme} />
