@@ -83,11 +83,12 @@ const MockUps = (props) => {
             <Paper square elevation={0}>
                 <Typography variant="h5">{props.data[activeStep].title}</Typography>
                 <a href={props.data[activeStep].url}><Typography variant="p">{props.data[activeStep].url}</Typography></a>
-                {!!props.data[activeStep].description && <Typography variant="p">{props.data[activeStep].description}</Typography>}
-            </Paper>
+                            </Paper>
              {!!props.data[activeStep].img && <a href={props.data[activeStep].url}><img style={{maxheight: "400px", width: "100%", objectFit: "fill", margin: "auto", display: "block"}}
-                src={props.data[activeStep].imgPath}
+                src={props.data[activeStep].img}
               /></a>}
+              {!!props.data[activeStep].description && <Typography variant="p" className="clear">{props.data[activeStep].description}</Typography>}
+
         </CardContent>
         <form onSubmit={e => {e.preventDefault(); setNewFeedback(false); props.feedbackSubmit(feedbackPayload)}}>
           <Card className={props.theme.widecard}>
