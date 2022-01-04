@@ -27,7 +27,7 @@ const AllTester = (props) => {
             secondary: "The primary requested information from testers at this stage is on the structure of the app and intended business design."
           }, { 
             primary: "white screen, endless loading, error message, unexpected results",
-            secondary: "At this point, an error of this type is likely the result of encountering unfinished development. At this point, please do not fight the error or assume it is unintended."
+            secondary: "An error of this type is likely the result of encountering unfinished development. At this point, please do not fight the error or report it. User Testing will begin in next development phase."
           }]
         }
       ];

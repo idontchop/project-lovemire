@@ -84,7 +84,8 @@ const MockUps = (props) => {
                 <Typography variant="h5">{props.data[activeStep].title}</Typography>
                 <a href={props.data[activeStep].url}><Typography variant="p">{props.data[activeStep].url}</Typography></a>
                             </Paper>
-             {!!props.data[activeStep].img && <a href={props.data[activeStep].url}><img style={{maxheight: "400px", width: "100%", objectFit: "fill", margin: "auto", display: "block"}}
+             {!!props.data[activeStep].img && <a href={props.data[activeStep].url}>
+                <img style={{maxWidth: "80%", objectFit: "fill", margin: "auto", display: "block"}}
                 src={props.data[activeStep].img}
               /></a>}
               {!!props.data[activeStep].description && <Typography variant="p" className="clear">{props.data[activeStep].description}</Typography>}
