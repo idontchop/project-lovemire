@@ -198,7 +198,7 @@ function App() {
         </Card>
         </animated.div>
       </Grid>}
-      {!!user && <AllTester springStyles={springStyles} theme={theme} user={user} />}
+      {!!user && user.accessLevel >= 0 && <AllTester springStyles={springStyles} theme={theme} user={user} />}
       {!!user && user.accessLevel === 0 && <Developer springStyles={springStyles} theme={theme} user={user} />}
       {!!user && user.accessLevel == 1 && <ContentTester springStyles={springStyles} theme={theme} user={user} />}
       {!!user && user.accessLevel >= 0 && <MockUpsContainer theme={theme} user={user} />}
