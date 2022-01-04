@@ -30,7 +30,7 @@ const AllTester = (props) => {
             secondary: "An error of this type is likely the result of encountering unfinished development. At this point, please do not fight the error or report it. User Testing will begin in next development phase."
           }, {
             primary: "grid lines, color theme, interface alignment",
-            secondary: "Theme and User Experience flow is being developed seperately and will be applied to the app prototype in the second development phase. In Core Development, interface components are often quickly added to test backend communication and component integration."
+            secondary: "Theme and User Experience flow is being developed seperately (see Mock Ups) and will be applied to the app prototype in the second development phase. In Core Development, interface components are often quickly added to test backend communication and component integration."
           }]
         }
       ];
