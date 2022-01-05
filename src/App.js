@@ -193,7 +193,7 @@ function App() {
             comopnent="Link"
             variant="contained"
             color="primary"
-             href={`https://localhost:3000/?t=${token}`}>Local (for developers)</Button>             }
+             href={`http://localhost:3000/?t=${token}`}>Local (for developers)</Button>             }
         </CardContent>
         </Card>
         </animated.div>
