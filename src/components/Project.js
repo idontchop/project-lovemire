@@ -16,19 +16,28 @@ import { makeStyles } from '@material-ui/core/styles';
  * Hopefully will be moved to server at some point
  */
 const projectManagement = [
-    { id: 1, name: "phase-one", title: "Phase One", subTitle: "Back end development, UI Structure",
+    { id: 1, name: "phase-one", title: "CORE DEVELOPMENT", subTitle: "Back end development, UI Structure",
     active: true, progress: 10,
     description: ["Early development phase consists of Backend Design and Development along with a simple UI structure to allow test users to navigate data.",
-                "Project Lovemire is being developed with consideration for sudden high traffic loads with Microservice Architecture. During Phase One, these microservices will be " +
-                "operated on a development server running docker, so will not be capable of handling stress tests in this phase."
+                "Project Lovemire is being developed with consideration for sudden high traffic loads with Microservice Architecture. During core development, these microservices will be " +
+                "operated on a server running docker behind a standard cable connection.",
+                "Technologies in use during this phase",
+                <ul>
+                    <li>Ubuntu / Docker</li>
+                    <li>Apache Kafka</li>
+                    <li>Spring/Java</li>
+                    <li>React/Javascript</li>
+                    <li>MongoDB</li>
+                    <li>Mysql</li>
+                </ul>
                 ],
-    timeline: <ul><li>Testing should focus on adding data and general structure (not aesthetics).</li></ul>},
+    timeline: <ul><li><b>Testing should focus on Business Plan.</b></li></ul>},
 
-    { id: 2, name: "phase-two", title: "Phase Two", subTitle: "Front end UI Remodel and Testing",
+    { id: 2, name: "phase-two", title: "UI/UX Development", subTitle: "User Experience Development",
     progress: 0,
     description: ["Using data from phase two, focus on developing a user-friendly, fast, and appealing Progressive Web App."],
-    timeline: <ul><li>Testing to be focused on User Interface easy of use and appeal.</li></ul>},
-    { id: 2, name: "phase-three", title: "Phase Three", subTitle: "Public Beta Prep",
+    timeline: <ul><li><b>Testing to be focused on User Interface ease of use and appeal.</b></li></ul>},
+    { id: 2, name: "phase-three", title: "Pre-deployment", subTitle: "Public Beta Prep",
     progress: 0,
     description: ["Backend Architecture will be moved to a cloud service provider such as AWS."],
     timeline: <ul><li>Public Authentication protocols added, security added.</li>
