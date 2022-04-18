@@ -1,6 +1,6 @@
 import logo from './images/lovemire-logo-wide.png';
 import styled from 'styled-components'
-import {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { LinearProgress, Button, Label, TextField, Card, Typography, CardContent, CardActions, InputAdornment, Link} from '@material-ui/core'
 import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -77,6 +77,12 @@ const axios = require('axios').default;
 
 const AUTHURL = "https://lovemire.com/auth";
 
+/**
+ * If this thing gets any bigger, may have to treat it like a real app
+ * *** Why didn't you anyway?
+ * 
+ * @returns 
+ */
 function App() {
 
   const theme = useStyles();
@@ -95,13 +101,22 @@ function App() {
 
   const [TesterContent, setTesterContent] = useState(null)
 
+  const [showRequestForm, setShowRequestForm] = useState(false)
+
+  const requestFormReducer = (state, field) => {
+    return Object.assign(state,field)    
+  }
+
+  const [requestForm, setRequestForm] = React.useReducer((state, field) => Object.assign(state,field), {})
+  const [requestFormText, setRequestFormText] = useState("Send Request!")
+  const [newRequests, setNewRequests] = React.useReducer((state,field) => Object.assign(state,field), {})
+
   const getToken = (e) => {
     if (e) e.preventDefault()
 
     if(accessCode !== "") {
       axios.get(AUTHURL + `/testuser/${accessCode}`, {responseType: 'json'})
         .then ( response => {
-          console.log(response)
           springApi.start({opacity: 1})
           headerApi.start(afterHeader)
           imgApi.start({maxHeight: "5vh"})
@@ -127,7 +142,43 @@ function App() {
 
   }
 
-  console.log(user)
+  const sendRequestForm = (e) => {
+    
+    console.log(requestForm)
+
+    axios.post(AUTHURL + `/testuser/request`, requestForm, {responseType: 'json'})
+      .then ( response => {
+        setRequestFormText("Saved")
+
+      })
+      .catch ( response => {
+        console.log(response)
+        setRequestFormText("Server unavailable")
+      })
+  }
+
+  useEffect( () => {
+    if (user.accessLevel === 0) {
+      axios.get(AUTHURL + `/testuser/request`, {responseType: 'json'})
+        .then ( response => {
+          
+          if (Array.isArray(response.data)) {
+            setNewRequests({requests: response.data.length})
+          }
+        })
+
+      axios.get(AUTHURL + `/feedback`, {responseType: 'json'})
+        .then ( response => {
+          if (Array.isArray(response.data)) {
+            setNewRequests({feedback: response.data.length})
+          }
+        })
+    }
+  },[user])
+
+  useEffect( () => {
+  },[newRequests])
+
   return (
     <div>
       <animated.header style={headerStyles}>
@@ -169,6 +220,7 @@ function App() {
           </CardContent>
         </Card>
         </form>
+        
         </Grid>
 
       
@@ -177,12 +229,42 @@ function App() {
           <p style={{color: 'red'}}>Network Error (maybe we are upgrading!)</p>
         </div>
       }
+      {!token && <Grid item>
+      <Card className={theme.card}>
+          <CardContent>
+          {showRequestForm &&<Typography gutterBottom variant="h5" onClick={() => setShowRequestForm(false)}>Request Test Account</Typography>}
+          {showRequestForm && <div><TextField className="clear" name="title" 
+            label="Name"
+            onChange={ (e) => setRequestForm({"name": e.target.value}) }/>
+          <TextField className="clear" name="email" 
+            label="Email"
+            onChange={ (e) => setRequestForm({"email": e.target.value}) }/>
+          <TextField className="clear" name="username" 
+            label="Username"
+            onChange={ (e) => setRequestForm({"username": e.target.value}) }/>
+          </div>}
+          </CardContent>
+          <CardActions>
+          {!showRequestForm && <Button className="clear" variant="contained" color="primary" onClick={() => setShowRequestForm(true)}>Request Test Account</Button>}
+          {showRequestForm && <Button className="clear" 
+              variant="contained" 
+              color="primary" 
+              onClick={() => sendRequestForm() }>{requestFormText}</Button>}
+          </CardActions>
+          <CardContent>
+          {!!token && token === "error" &&
+            <Typography>Code not found</Typography>
+          }
+          </CardContent>
+        </Card>
+      </Grid>}
       {!!token && token.length > 20 && 
       <Grid item>
       <animated.div style={springStyles}>
         <Card className={theme.card}>
         <CardContent>
           <Typography gutterBottom variant="h5">Welcome {user.title}!</Typography>
+          {Object.keys(newRequests).length > 0 && <Typography variant="p">{"Requests: " + newRequests.requests + " Feedback: " + newRequests.feedback}</Typography>}
             <Button
             comopnent="Link"
             variant="contained"

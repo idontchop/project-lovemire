@@ -37,7 +37,7 @@ const projectManagement = [
     progress: 0,
     description: ["Using data from phase two, focus on developing a user-friendly, fast, and appealing Progressive Web App."],
     timeline: <ul><li><b>Testing to be focused on User Interface ease of use and appeal.</b></li></ul>},
-    { id: 2, name: "phase-three", title: "Pre-deployment", subTitle: "Public Beta Prep",
+    { id: 3, name: "phase-three", title: "Pre-deployment", subTitle: "Public Beta Prep",
     progress: 0,
     description: ["Backend Architecture will be moved to a cloud service provider such as AWS."],
     timeline: <ul><li>Public Authentication protocols added, security added.</li>
@@ -72,7 +72,7 @@ const Project = (props) => {
             </AccordionSummary>
             <AccordionDetails>
                 <div>
-                {e.description.map ( p => <Typography style={{marginBottom:"15px"}} inline>{p}</Typography>)}
+                {e.description.map ( (p,i) => <Typography key={i} style={{marginBottom:"15px"}} inline>{p}</Typography>)}
                 </div>
                 <Typography>{e.timeline}</Typography>
             </AccordionDetails>
