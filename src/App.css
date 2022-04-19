@@ -1,4 +1,25 @@
 
+
+@font-face {
+  font-family: 'Courier Prime';
+  src: local('Courier Prime'), url(./fonts/courier-prime.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: local('Playfair Display'), url(./fonts/PlayfairDisplay.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat'), url(./fonts/Montserrat.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: local('OpenSans'), url(./fonts/OpenSans.ttf) format('truetype');
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

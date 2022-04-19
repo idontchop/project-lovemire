@@ -9,6 +9,7 @@ import MockUpsContainer from './containers/MockUpsContainer'
 import ContentTester from './accessLevelCustomCards/ContentTester'
 import Developer from './accessLevelCustomCards/Developer'
 import AllTester from './cards/AllTester'
+import ScrollPresentation from './presentation/ScrollPresentation';
 
 import { makeStyles } from '@material-ui/core/styles';
 import './App.css'
@@ -258,6 +259,7 @@ function App() {
           </CardContent>
         </Card>
       </Grid>}
+      
       {!!token && token.length > 20 && 
       <Grid item>
       <animated.div style={springStyles}>
@@ -291,6 +293,7 @@ function App() {
         </Grid>}
       
       </Grid>
+      {!token && <ScrollPresentation />}
       </div>
     </div>
   );
