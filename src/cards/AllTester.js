@@ -74,8 +74,8 @@ const AllTester = (props) => {
                 <Typography variant="h5">{tutorialSteps[activeStep].label}</Typography>
             </Paper>
             <List>
-              {tutorialSteps[activeStep].list.map ( (v) => {
-                return <ListItem>
+              {tutorialSteps[activeStep].list.map ( (v,i) => {
+                return <ListItem key={i}>
                   <ListItemText primary={v.primary}
                   secondary={v.secondary} />
                 </ListItem>
