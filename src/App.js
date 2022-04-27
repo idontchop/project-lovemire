@@ -12,8 +12,10 @@ import AllTester from './cards/AllTester'
 
 import { makeStyles } from '@material-ui/core/styles';
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.css';
 
 import Project from './components/Project'
+import ScrollPresentation from './components/ScrollPresentation'
 
 const accessLevels = {
   0: "Developer",
@@ -258,6 +260,7 @@ function App() {
           </CardContent>
         </Card>
       </Grid>}
+      
       {!!token && token.length > 20 && 
       <Grid item>
       <animated.div style={springStyles}>
@@ -291,6 +294,7 @@ function App() {
         </Grid>}
       
       </Grid>
+      {!token && <ScrollPresentation />}
       </div>
     </div>
   );

@@ -1,4 +1,26 @@
 
+
+
+@font-face {
+  font-family: 'Playfair Display';
+  src: local('Playfair Display'), url(./fonts/PlayfairDisplay.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: local('Montserrat'), url(./fonts/Montserrat.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'OpenSans';
+  src: local('OpenSans'), url(./fonts/OpenSans.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Ink Free';
+  src: local('Ink Free'), url(./fonts/Inkfree.ttf) format('truetype');
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -25,6 +47,53 @@
   color: #61dafb;
 }
 
+.sectionBody {    
+    width: 100%;
+    border-radius: 5px;
+	padding-bottom: 25px;
+
+}
+
+.sectionBody button {
+    border-radius: 5px;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+.projectSeperator {
+	margin-top: 45px;
+}
+
+.projectSeperator hr {
+	width: 70%;
+	height: 2px;
+	color: #86888B;
+}
+
+.sectionBody p {
+    margin: 1.5em;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+.sectionBody h1 {
+    margin: 1.2em;
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+    font-size: 1.9em;
+    text-align: center;
+}
+
+.sectionBody h3 {
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.sectionBody h4 {
+    margin: 1em;
+    text-align: center;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-size: 1em;    
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -33,3 +102,5 @@
     transform: rotate(360deg);
   }
 }
+
+
