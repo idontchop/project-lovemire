@@ -10,7 +10,7 @@ const ScrollPresentation = (props) => {
     return <div style={{maxWidth: '1024px', margin: "auto"}}>
         <Presentation fullScreen>
         <ConfigurableSlide alternateSlideIn={{background: LoveMireBackDrop,
-             fullScreen: true, scrollSpeed: 3, scrollViewPort: true}} title="test">
+             fullScreen: true, scrollSpeed: 4, scrollViewPort: true}} title="test">
             <LoveMire slide="1" />
             <LoveMire slide="2" />
             <LoveMire slide="3" />

@@ -10,7 +10,6 @@ const Slide = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(255, 255, 255,0.5);
 
     img {
         display: block;
@@ -30,6 +29,8 @@ const Bubbble = styled.div`
     border-radius: 10px;
     border: 2px rgb(202, 181, 181) solid;
     margin: auto;
+    -webkit-box-shadow: 0px 0px 14px 9px #707070; 
+    box-shadow: 0px 0px 14px 9px #707070;  
 `
 
 
@@ -45,7 +46,7 @@ export const LoveMire = (props) => {
             </div>
             </Slide>}
         {props?.slide === "2" && <Slide>
-            <div  style={{height: '100%', maxWidth: '60%'}}  className="sectionBodyInsert d-flex flex-grow-1 ">
+            <div  style={{height: '100%', maxWidth: '95%'}}  className="sectionBodyInsert d-flex flex-grow-1 ">
                 <Bubbble>
                 <h3>A Free Dating/Social App</h3>
                 <ul>
@@ -63,8 +64,8 @@ export const LoveMire = (props) => {
                 <Bubbble>
                 <h3>Request a Test Account!</h3>
                 <ul>
-                    <li>Content Testers</li>
-                    <li>Investors</li>
+                    <li><p>Content Testers</p></li>
+                    <li><p>Investors</p></li>
                 </ul>
                 </Bubbble>
             </div>
@@ -75,7 +76,8 @@ export const LoveMire = (props) => {
                 <h1>Target Public Beta: </h1>
                 <h4>Winter 2022</h4>
                 <div style={{left: '50%', transform: 'translateX(-50%)',
-                    position: 'absolute', bottom: '10px',
+                    position: 'absolute', bottom: '10px', width: "100%",
+                    textAlign: 'center',
                     cursor: 'pointer'}}>
                 <h5 className="inkfree" 
                     style={{display: "inline-block", 

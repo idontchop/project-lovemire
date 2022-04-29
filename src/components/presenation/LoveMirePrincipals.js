@@ -7,18 +7,21 @@ import Principal2 from '../../images/principal-2.jpg'
 const Slide = styled.div`
     width: 100%;
     height: 50vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 25px 0;
     background-color: rgba(255, 255, 255,0.5);
 
     img {
         display: block;
         max-height: 80%;
-        width: auto;
+        max-width: 80%;
+        margin: 0 auto;
         -webkit-box-shadow: 0px 0px 14px 9px #707070; 
         box-shadow: 0px 0px 14px 9px #707070;  
         border-radius: 50%;
+
+        @media (max-width: 768px) {
+            max-width: 180px;
+        }
     }
 
 `
@@ -26,13 +29,12 @@ const Slide = styled.div`
 const Bubbble = styled.div`
     padding: 2px 10px;
     height: auto;
-    max-width: 80%;
     display: inline-block;
     background-color: white;
     border-radius: 25px 25px 25px 0;
     padding: 10px;
     border: 2px rgb(202, 181, 181) solid;
-    margin: auto;
+    
 `
 
 
@@ -40,9 +42,12 @@ export const LoveMirePrincipals = (props) => {
 
 
     return <>
-        {!props.slide && <Slide>{props.children}</Slide>}
-        {props?.slide === "1" && <Slide>
-        <div  style={{height: '100%'}} className="sectionBodyInsert d-flex flex-grow-1 ">
+        {!props.slide && <Slide >{props.children}</Slide>}
+        {props?.slide === "1" && <Slide className="container ">
+        <div className="row">
+        <div className="col-sm-6 sectionBodyInsert col-sm-6"><img className="img-fluid" src={Principal1} /></div>
+        
+        <div className="col-sm-6 sectionBodyInsert  ">
                 <Bubbble>
                 <h3>Nathan Dunn</h3>
                 <i>"Busy tracking down a ghost event."</i>
@@ -50,11 +55,14 @@ export const LoveMirePrincipals = (props) => {
                 <p><a href="mailto: nathan@lovemire.com">nathan@lovemire.com</a></p>
                 </Bubbble>
             </div>
-            <div  style={{height: '100%'}} className="sectionBodyInsert d-flex flex-grow-1 align-items-center justify-content-center"><img className="img-fluid" src={Principal1} /></div>
+            </div>
             </Slide>}
   
-        {props?.slide === "2" && <Slide>
-        <div  style={{height: '100%'}} className="sectionBodyInsert d-flex flex-grow-1 ">
+        {props?.slide === "2" && <Slide className="container">
+        <div className="row">
+        <div className="col-sm-6 sectionBodyInsert"><img className="img-fluid" src={Principal2} /></div>
+        
+            <div className="col-sm-6 sectionBodyInsert">
                 <Bubbble>
                 <h3>David Radford</h3>
                 <i>"When I'm not selling, I'm flying."</i>
@@ -64,7 +72,7 @@ export const LoveMirePrincipals = (props) => {
                 
                 </Bubbble>
             </div>
-            <div  style={{height: '100%'}} className="sectionBodyInsert d-flex flex-grow-1 align-items-center justify-content-center"><img className="img-fluid" src={Principal2} /></div>
+        </div>
             </Slide>}    
                             
     </>
