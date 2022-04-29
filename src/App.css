@@ -59,6 +59,37 @@
     font-family: "Montserrat", Arial, Helvetica, sans-serif;
 }
 
+
+.sectionBodyInsert p {
+  margin: 0;
+  margin-left: 1em;
+  margin-right: 0.1em;
+  font-size: 0.9em;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+.sectionBodyInsert h2 {
+  margin-top: 1em;
+  text-align: center;
+  font-size: 2em;
+  font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+}
+
+.sectionBodyInsert h3 {
+  margin-top: 1em;
+  text-align: center;
+  font-size: 1.3em;
+  font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+}
+
+.sectionBodyInsert h4 {
+  margin-top: 1em;
+  margin-right: 0;
+  font-size: 1em;
+  text-align: left;
+  font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+}
+
 .projectSeperator {
 	margin-top: 45px;
 }

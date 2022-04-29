@@ -45,13 +45,15 @@ export const LoveMire = (props) => {
             </div>
             </Slide>}
         {props?.slide === "2" && <Slide>
-            <div  style={{height: '100%'}}  className="sectionBodyInsert d-flex flex-grow-1 ">
+            <div  style={{height: '100%', maxWidth: '60%'}}  className="sectionBodyInsert d-flex flex-grow-1 ">
                 <Bubbble>
                 <h3>A Free Dating/Social App</h3>
-                <p>Combines a dating app and a media browsing site.</p>
-                <p>Members receive incentives for posts and recent posts will reveal higher in searches like a social app.</p>
-                <p>Posts are browsable based on possible matches, like a dating app.</p>
-                <p>Encourages worldwide online dating.</p>
+                <ul>
+                <li><p>Combines a dating app with media browsing social app.</p></li>
+                <li><p>Members receive incentives for posts and recent posts reveal higher in searches like a social app.</p></li>
+                <li><p>Posts are browsable based on possible matches, like a dating app.</p></li>
+                <li><p>Encourages worldwide online dating.</p></li>
+                </ul>
                 </Bubbble>
             </div>
             
@@ -62,7 +64,6 @@ export const LoveMire = (props) => {
                 <h3>Request a Test Account!</h3>
                 <ul>
                     <li>Content Testers</li>
-                    <li>Developers</li>
                     <li>Investors</li>
                 </ul>
                 </Bubbble>

@@ -1,6 +1,7 @@
 import React from 'react'
 import {Presentation, ConfigurableSlide } from 'react-scroll-presentation'
 
+import {LoveMirePrincipals} from './presenation/LoveMirePrincipals'
 import {LoveMire} from './presenation/LoveMire'
 import LoveMireBackDrop from '../images/LoveMireBackDrop.png'
 
@@ -15,8 +16,9 @@ const ScrollPresentation = (props) => {
             <LoveMire slide="3" />
             <LoveMire slide="4" />
         </ConfigurableSlide>
-        <ConfigurableSlide springIn title="test">
-            <div>Thank you!</div>
+        <ConfigurableSlide springIn title="principals">
+            <LoveMirePrincipals slide="2" />
+            <LoveMirePrincipals slide="1" />
         </ConfigurableSlide>        
     </Presentation>
     </div>
