@@ -12,16 +12,12 @@ const Slide = styled.div`
 
     img {
         display: block;
-        max-height: 80%;
-        max-width: 80%;
+        max-height: 25vh;
         margin: 0 auto;
         -webkit-box-shadow: 0px 0px 14px 9px #707070; 
         box-shadow: 0px 0px 14px 9px #707070;  
         border-radius: 50%;
 
-        @media (max-width: 768px) {
-            max-width: 180px;
-        }
     }
 
 `
@@ -32,8 +28,25 @@ const Bubbble = styled.div`
     display: inline-block;
     background-color: white;
     border-radius: 25px 25px 25px 0;
-    padding: 10px;
     border: 2px rgb(202, 181, 181) solid;
+    margin: 5px 2px 2px 2px;
+
+    @media (max-width: 750px) {
+        padding: 2px 2px;
+        border-radius: 10px 10px 10px 0;
+    }
+
+    h3 {
+        font-size: 1em;
+    }
+
+    p {
+        font-size: 0.8em;
+    }
+
+    i {
+        font-size: 0.7em;
+    }
     
 `
 
