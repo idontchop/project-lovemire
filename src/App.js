@@ -178,6 +178,11 @@ function App() {
     }
   },[user])
 
+  useEffect ( () => {
+    axios.post("https://idontchop.com/portfolio-war/hit", {name: 'project-lovemire', message: navigator.userAgent}, {responseType: 'json'})
+      .catch ( e => console.log("Error Saving Hit",e.message))
+  },[])
+
   useEffect( () => {
   },[newRequests])
 
