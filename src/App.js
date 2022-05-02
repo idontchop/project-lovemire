@@ -2,6 +2,7 @@ import logo from './images/lovemire-logo-wide.png';
 import styled from 'styled-components'
 import React, {useState, useEffect} from 'react';
 import { LinearProgress, Button, Label, TextField, Card, Typography, CardContent, CardActions, InputAdornment, Link} from '@material-ui/core'
+import { Field } from 'lovemire-components'
 import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import {useSpring, animated} from 'react-spring'
@@ -203,7 +204,7 @@ function App() {
         <Card className={theme.card}>
           <CardContent>
           <Typography gutterBottom variant="h5">Test User Gateway</Typography>
-          <TextField className="clear" name="access" 
+          {true && <TextField className="clear" name="access" 
             label="Access Code"
             onChange={ (e) => setAccessCode(e.target.value) }
             InputProps={{
@@ -212,7 +213,10 @@ function App() {
                   <AccountCircle />
                 </InputAdornment>
               ),
-            }} />
+            }} />}
+          {false && <Field onChange={ (e) => setAccessCode(e)} />
+          /* lovemire-components, need theming to make work*/}
+          
           </CardContent>
           <CardActions>
             <Button className="clear" 

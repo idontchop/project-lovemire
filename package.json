@@ -19,8 +19,8 @@
     "react-spring": "^9.2.4",
     "styled-components": "^5.3.0",
     "web-vitals": "^1.1.2",
-    "react-scroll-presentation": "github:idontchop/react-scroll-presentation#dev"
-
+    "react-scroll-presentation": "github:idontchop/react-scroll-presentation#dev",
+    "lovemire-components": "git@github.com:idontchop/lovemire-components"
   },
   "scripts": {
     "start": "react-scripts start",
