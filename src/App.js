@@ -11,6 +11,9 @@ import Developer from './accessLevelCustomCards/Developer'
 import AllTester from './cards/AllTester'
 import ScrollPresentation from './presentation/ScrollPresentation';
 
+// react-scroll
+import { Presentation } from 'react-scroll-presentation';
+
 import { makeStyles } from '@material-ui/core/styles';
 import './App.css'
 
