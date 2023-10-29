@@ -1,9 +1,5 @@
 
 
-@font-face {
-  font-family: 'Courier Prime';
-  src: local('Courier Prime'), url(./fonts/courier-prime.ttf) format('truetype');
-}
 
 @font-face {
   font-family: 'Playfair Display';
@@ -20,6 +16,11 @@
   src: local('OpenSans'), url(./fonts/OpenSans.ttf) format('truetype');
 }
 
+@font-face {
+  font-family: 'Ink Free';
+  src: local('Ink Free'), url(./fonts/Inkfree.ttf) format('truetype');
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -30,6 +31,7 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
 
 .App-header {
   background-color: #282c34;
@@ -46,6 +48,132 @@
   color: #61dafb;
 }
 
+.sectionBody {    
+    width: 100%;
+    border-radius: 5px;
+	padding-bottom: 25px;
+
+}
+
+.sectionBody button {
+    border-radius: 5px;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+
+.sectionBodyInsert p {
+  margin: 0;
+  margin-left: 1em;
+  margin-right: 0.1em;
+  font-size: 0.9em;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+
+@media (max-width: 450px) {
+  .sectionBodyInsert p {
+    font-size: 0.8em;
+  }
+}
+
+.sectionBodyInsert h2 {
+  margin-top: 1em;
+  text-align: center;
+  font-size: 2em;
+  font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+}
+
+.sectionBodyInsert h3 {
+  margin-top: 1em;
+  text-align: center;
+  font-size: 1.3em;
+  font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+}
+
+.sectionBodyInsert h4 {
+  margin-top: 1em;
+  margin-right: 0;
+  font-size: 1em;
+  text-align: left;
+  font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+}
+
+.projectSeperator {
+	margin-top: 45px;
+}
+
+.projectSeperator hr {
+	width: 70%;
+	height: 2px;
+	color: #86888B;
+}
+
+.sectionBody p {
+    margin: 1.5em;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+
+.sectionBody h1 {
+    margin: 1.2em;
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+    font-size: 1.9em;
+    text-align: center;
+}
+
+.sectionBody h3 {
+    font-family: 'Playfair Display', Arial, Helvetica, sans-serif;
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.sectionBody h4 {
+    margin: 1em;
+    text-align: center;
+    font-family: "Montserrat", Arial, Helvetica, sans-serif;
+    font-size: 1em;    
+}
+
+
+.scroll-down {
+  display: inline-block;
+  text-align: center;
+  font-size: 20px;
+  text-decoration: none;
+  text-shadow: 0;
+  width: 13px;
+  height: 13px;
+  border-bottom: 2px solid #707070;
+  border-right: 2px solid #707070;
+  -webkit-transform: translate(-50%, 0%) rotate(45deg);
+  -moz-transform: translate(-50%, 0%) rotate(45deg);
+  transform: translate(-50%, 0%) rotate(45deg);
+  -webkit-animation: fade_move_down 4s ease-in-out infinite;
+  -moz-animation:    fade_move_down 4s ease-in-out infinite;
+  animation:         fade_move_down 4s ease-in-out infinite;
+}
+
+  
+  /*animated scroll arrow animation*/
+  @-webkit-keyframes fade_move_down {
+    0%   { -webkit-transform:translate(0,-10px) rotate(45deg); opacity: 0;  }
+    50%  { opacity: 1;  }
+    100% { -webkit-transform:translate(0,10px) rotate(45deg); opacity: 0; }
+  }
+  @-moz-keyframes fade_move_down {
+    0%   { -moz-transform:translate(0,-10px) rotate(45deg); opacity: 0;  }
+    50%  { opacity: 1;  }
+    100% { -moz-transform:translate(0,10px) rotate(45deg); opacity: 0; }
+  }
+  @keyframes fade_move_down {
+    0%   { transform:translate(0,-10px) rotate(45deg); opacity: 0;  }
+    50%  { opacity: 1;  }
+    100% { transform:translate(0,10px) rotate(45deg); opacity: 0; }
+  }
+
+.inkfree {
+  font-family: "Ink Free", "Kalem", cursive, script;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
@@ -54,3 +182,5 @@
     transform: rotate(360deg);
   }
 }
+
+

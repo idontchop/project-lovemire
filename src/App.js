@@ -2,6 +2,7 @@ import logo from './images/lovemire-logo-wide.png';
 import styled from 'styled-components'
 import React, {useState, useEffect} from 'react';
 import { LinearProgress, Button, Label, TextField, Card, Typography, CardContent, CardActions, InputAdornment, Link} from '@material-ui/core'
+import { Field } from 'lovemire-components'
 import Grid from '@material-ui/core/Grid';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import {useSpring, animated} from 'react-spring'
@@ -16,8 +17,10 @@ import { Presentation } from 'react-scroll-presentation';
 
 import { makeStyles } from '@material-ui/core/styles';
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.css';
 
 import Project from './components/Project'
+import ScrollPresentation from './components/ScrollPresentation'
 
 const accessLevels = {
   0: "Developer",
@@ -180,6 +183,11 @@ function App() {
     }
   },[user])
 
+  useEffect ( () => {
+    axios.post("https://idontchop.com/portfolio-war/hit", {name: 'project-lovemire', message: navigator.userAgent}, {responseType: 'json'})
+      .catch ( e => console.log("Error Saving Hit",e.message))
+  },[])
+
   useEffect( () => {
   },[newRequests])
 
@@ -200,7 +208,7 @@ function App() {
         <Card className={theme.card}>
           <CardContent>
           <Typography gutterBottom variant="h5">Test User Gateway</Typography>
-          <TextField className="clear" name="access" 
+          {true && <TextField className="clear" name="access" 
             label="Access Code"
             onChange={ (e) => setAccessCode(e.target.value) }
             InputProps={{
@@ -209,7 +217,10 @@ function App() {
                   <AccountCircle />
                 </InputAdornment>
               ),
-            }} />
+            }} />}
+          {false && <Field onChange={ (e) => setAccessCode(e)} />
+          /* lovemire-components, need theming to make work*/}
+          
           </CardContent>
           <CardActions>
             <Button className="clear" 
