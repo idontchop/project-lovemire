@@ -10,7 +10,6 @@ import MockUpsContainer from './containers/MockUpsContainer'
 import ContentTester from './accessLevelCustomCards/ContentTester'
 import Developer from './accessLevelCustomCards/Developer'
 import AllTester from './cards/AllTester'
-import ScrollPresentation from './presentation/ScrollPresentation';
 
 // react-scroll
 import { Presentation } from 'react-scroll-presentation';
